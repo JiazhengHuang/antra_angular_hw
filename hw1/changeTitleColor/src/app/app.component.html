@@ -1,0 +1,8 @@
+<h1 id="title">{{ title }}</h1>
+<ul>
+  <app-card-item
+    *ngFor="let item of list"
+    [data]="item"
+    [list]="list"
+  ></app-card-item>
+</ul>

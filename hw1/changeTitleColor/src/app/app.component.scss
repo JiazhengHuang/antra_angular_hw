@@ -1,0 +1,19 @@
+h1 {
+  width: 30%;
+  margin: auto;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  padding: 0;
+  margin: auto;
+}
+
+app-card-item {
+  width: 400px;
+  height: 200px;
+  margin: 30px;
+}
