@@ -1,0 +1,23 @@
+<h1>USer Details</h1>
+<span>Search First Name: </span>
+<input [(ngModel)]="inputVal" type="text" placeholder="Enter First Name" />
+
+<table>
+  <tr>
+    <th class="firstName" (click)="sort()">First Name</th>
+    <th>Last Name</th>
+    <th>Department</th>
+    <th>Salary</th>
+    <th>Joining Date</th>
+  </tr>
+
+  <tr *ngFor="let user of users | filter: inputVal | sortFirstName: checked">
+    <td>{{ user.firstName }}</td>
+    <td>{{ user.lastName }}</td>
+    <td>{{ user.dept }}</td>
+    <td>{{ user.salary }}</td>
+    <td>{{ user.doj | date: "mm/dd/yyyy" }}</td>
+  </tr>
+</table>
+
+<button (click)="reset()">Reset</button>
