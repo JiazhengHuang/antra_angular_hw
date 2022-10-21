@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let book of bookService.wishes$ | async">
+    {{ book }}
+    <button (click)="onClickWishes(book.bookname)">Remove</button>
+  </li>
+</ul>
