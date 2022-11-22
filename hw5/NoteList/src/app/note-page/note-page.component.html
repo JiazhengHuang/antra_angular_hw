@@ -1,0 +1,46 @@
+<div class="main-container">
+  <div class="notelist-container">
+    <div class="header-container">
+      <h1>Notes</h1>
+      <button class="add-btn">+</button>
+    </div>
+    <ul *ngFor="let note of noteService.notelist$ | async">
+      <li>
+        <h3 class="note-title" (click)="editNote(note.title)">
+          {{ note.title }}
+        </h3>
+        <button class="delete-btn" (click)="deleteNote(note.title)">X</button>
+      </li>
+    </ul>
+  </div>
+
+  <form [formGroup]="editForm" (ngSubmite)="onSubmit()" class="edit-form">
+    <div class="edit-container">
+      <label for="titleinput"></label>
+      <input id="titleinput" class="title-input" formControlName="title" />
+
+      <label for="noteinput"></label>
+      <textarea
+        id="noteinput"
+        class="note-input"
+        rows="20"
+        formControlName="content"
+      ></textarea>
+
+      <button
+        [disabled]="!editForm.valid"
+        class="revert-btn"
+        (click)="revertNote()"
+      >
+        Revert
+      </button>
+      <button
+        [disabled]="!editForm.valid"
+        class="save-btn"
+        (click)="onSubmit()"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
